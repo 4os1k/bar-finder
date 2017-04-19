@@ -1,0 +1,15 @@
+<ion-view view-title="Places List">
+  <ion-content class="with-tabls">
+    <div class="card" ng-repeat="places in PlaceholderService.nearbyPlacesList">
+  <div class="item item-divider">
+    {{PlaceholderService.nearbyPlacesList.name}}
+  </div>
+  <div class="item item-text-wrap">
+    Some description
+  </div>
+  <div class="item item-divider">
+    Bar Adress
+  </div>
+</div>
+  </ion-content>
+</ion-view>
