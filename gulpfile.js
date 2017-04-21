@@ -4,14 +4,29 @@ var bower = require('bower');
 var concat = require('gulp-concat');
 var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
+var jsmin = require('gulp-jsmin');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var uglify = require('gulp-uglify');
 
 var paths = {
   sass: ['./scss/**/*.scss']
 };
 
 gulp.task('default', ['sass']);
+
+gulp.task('minify', function () {
+    gulp.src('www/js/app.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('build'));
+});
+
+gulp.task('jsmin', function () {
+    gulp.src('./www/js/app.js')
+        .pipe(jsmin())
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest('./sample/dist'));
+});
 
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
@@ -49,3 +64,4 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+

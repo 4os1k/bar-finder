@@ -9,18 +9,17 @@
 
 
   function MapDrawerService($state, $cordovaGeolocation, PlaceholderService) {
-
+    
     function DrawThatDamnMap() {
 
     var options = { timeout: 10000, enableHighAccuracy: true };
-    // var PlaceholderService = PlaceholderService;
 
     $cordovaGeolocation.getCurrentPosition(options)
       .then(function(position) {
-
+        
         // Finding your position
-        // var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-        var latLng = new google.maps.LatLng(46.966886, 32.068710);
+        var latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        // var latLng = new google.maps.LatLng(46.966886, 32.068710);
         var pointB = new google.maps.LatLng(46.964278, 32.023154);
         var mapOptions = {
           center: latLng,
@@ -78,7 +77,7 @@
             for (var i = 0; i < results.length; i++) {
               createMarker(results[i]);
               PlaceholderService.nearbyPlacesList.push(results[i]);
-              console.log(results[i]);
+              // console.log(results[i]);
             }
           }
         }

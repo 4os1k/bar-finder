@@ -1,14 +1,24 @@
 <ion-view view-title="Places List">
   <ion-content class="with-tabls">
-    <div class="card" ng-repeat="places in PlaceholderService.nearbyPlacesList">
+    <div class="card" ng-repeat="place in PhS.nearbyPlacesList">
   <div class="item item-divider">
-    {{PlaceholderService.nearbyPlacesList.name}}
+    <p>Name: </p>{{place.name}}
   </div>
   <div class="item item-text-wrap">
-    Some description
+    <p><strong>Place ID: </strong>{{place.id}}</p>
+    <p><strong>Place Reference: </strong>{{place.reference}}</p>
+    <p><strong>IsOpen: </strong>{{LS.isOpen(place.opening_hours.open_now)}}</p>
+    <p><strong>IsOpen: </strong>{{isOpen(place.opening_hours.open_now)}}</p>
+    <p><strong>PlaceLat: </strong>{{place.geometry.location.lat()}}</p>
+    <p><strong>PlaceLng: </strong>{{place.geometry.location.lng()}}</p>
+    <p><strong>Formated Adress: </strong>{{place.getDetails().formatted_address}}</p>
+    <p><strong>Rating: </strong>{{LS.isRating(place.rating)}}</p>
+    <p><strong></strong></p>
+    <p><strong></strong></p>
+    <p><strong></strong></p>
   </div>
   <div class="item item-divider">
-    Bar Adress
+    <p>Bar Adress: </p>{{place.vicinity}}
   </div>
 </div>
   </ion-content>
